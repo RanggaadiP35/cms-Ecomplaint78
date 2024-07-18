@@ -52,7 +52,7 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const EditComplaint = React.lazy(() => import('./views/base/tables/EditComplaint'))
 
-const routes = [
+const RouteUrl = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
@@ -101,4 +101,4 @@ const routes = [
   { path: '/edit/:id', name: 'EditComplaint', element: EditComplaint },
 ]
 
-export default routes
+export default RouteUrl
