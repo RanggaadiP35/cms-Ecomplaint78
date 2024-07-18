@@ -34,6 +34,7 @@ const App = () => {
     setColorMode(storedTheme)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
+  console.log(RouteUrl) 
   return (
     <Router>
       <Suspense
@@ -44,13 +45,6 @@ const App = () => {
         }
       >
         <Routes>
-          {RouteUrl.map((route, index) => (
-            <Route
-              key={index}
-              path={route.path}
-              element={<route.element />}
-            />
-          ))}
           <Route exact path="/login" name="Login Page" element={<Login />} />
           <Route exact path="/register" name="Register Page" element={<Register />} />
           <Route exact path="/404" name="Page 404" element={<Page404 />} />
@@ -58,6 +52,13 @@ const App = () => {
           <Route path="*" name="Home" element={<Navigate to="/login" />} />
           {/* <Route path="*" name="Default" element={<DefaultLayout />} /> */}
           {/* <Route exact path="/Complaint" name="Complaint" element={<Tables />} /> */}
+          {RouteUrl.map((route, index) => (
+            <Route
+            key={index}
+            path={route.path}
+            element={<route.element />}
+            />
+          ))}
         </Routes>
       </Suspense>
     </Router>
