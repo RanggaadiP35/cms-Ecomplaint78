@@ -4,7 +4,10 @@ import { useSelector } from 'react-redux'
 
 import { CSpinner, useColorModes } from '@coreui/react'
 import './scss/style.scss'
-import RouteUrl from "./routes.js";
+import RouteUrl from './routes.js'
+import HalamanRoutes from './components/HalamanRoutes.js'
+import Tables from './views/base/tables/Tables.js'
+import EditComplaint from './views/base/tables/EditComplaint.js'
 
 // Containers
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
@@ -34,7 +37,6 @@ const App = () => {
     setColorMode(storedTheme)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log(RouteUrl) 
   return (
     <Router>
       <Suspense
@@ -52,13 +54,16 @@ const App = () => {
           <Route path="*" name="Home" element={<Navigate to="/login" />} />
           {/* <Route path="*" name="Default" element={<DefaultLayout />} /> */}
           {/* <Route exact path="/Complaint" name="Complaint" element={<Tables />} /> */}
-          {RouteUrl.map((route, index) => (
+          {/* {RouteUrl.map((route, index) => (
             <Route
             key={index}
             path={route.path}
             element={<route.element />}
             />
-          ))}
+          ))} */}
+          {/* <Route exact path='/' element={<HalamanRoutes/>}/> */}
+          <Route exact path="/pengaduan" name="Halaman Pengaduan" element={<Tables />} />
+          <Route exact path="/edit/:id" name="EditComplaint" element={<EditComplaint />} />
         </Routes>
       </Suspense>
     </Router>
