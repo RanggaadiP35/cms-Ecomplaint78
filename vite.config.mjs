@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: './',
     build: {
-      outDir: 'dist',
+      outDir: 'build',
     },
     css: {
       postcss: {
@@ -45,9 +45,9 @@ export default defineConfig(({ mode }) => {
         // https://vitejs.dev/config/server-options.html
       },
       historyApiFallback: true,
-      headers: {
-        'Content-Type': 'application/javascript',
-      },
+      // headers: {
+      //   'Content-Type': 'application/javascript',
+      // },
     },
   }
 })
