@@ -44,7 +44,10 @@ export default defineConfig(({ mode }) => {
       proxy: {
         // https://vitejs.dev/config/server-options.html
       },
-      historyApiFallback: true
+      historyApiFallback: true,
+      headers: {
+        'Content-Type': 'application/javascript',
+      },
     },
   }
 })
